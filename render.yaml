@@ -1,14 +1,11 @@
 services:
-  - type: web
+  - type: worker
     name: gt3-siniestros-bot
-    env: python
-    plan: free
+    runtime: python
     buildCommand: ""
     startCommand: "python bot_gt3_webhook.py"
     envVars:
       - key: TELEGRAM_TOKEN
-        value: 8117221184:AAEHOLFXRy567KRtHltbCTEx0rfb7fn7UKA
-      - key: WEBHOOK_URL
-        value: https://gt3-siniestros-bot.onrender.com/webhook
-    autoDeploy: true
-    env: python
+        sync: false
+      - key: USER_ID
+        sync: false
